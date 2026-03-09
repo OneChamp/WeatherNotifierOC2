@@ -1,6 +1,7 @@
 import requests
 import datetime as dt
 import smtplib
+import os
 from email.message import EmailMessage
 from email.mime.text import MIMEText
 import pandas
@@ -20,8 +21,8 @@ MY_LONG_MUM="72.877655"
 my_api_full_day_forecast_bang="https://api.weatherapi.com/v1/forecast.json?key=3c0de8c0228d4cbdbf8172702260703&q=12.97,77.59&days=1"
 my_api_full_day_forecast_mum="https://api.weatherapi.com/v1/forecast.json?key=3c0de8c0228d4cbdbf8172702260703&q=12.97,77.59&days=1"
 
-username = "brucewayne78602@gmail.com"#Pass!2211!786@# n
-password = "uoxvlqectvzoxhnt"
+username = "brucewayne78602@gmail.com"
+password = os.getenv("EMAIL_PASS")
 
 def get_current_weather(api_url):
     response=requests.get(api_url)
@@ -117,3 +118,4 @@ for val in location:
 
                 connection.send_message(msg)
                 #print("Email sent to Mumbai team!")
+
