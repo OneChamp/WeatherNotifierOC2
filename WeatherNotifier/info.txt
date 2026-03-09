@@ -1,0 +1,7 @@
+is_day	Instant	Dimensionless	1 if the current time step has daylight, 0 at night.
+# my_api_current_forecast="https://api.weatherapi.com/v1/current.json?key=3c0de8c0228d4cbdbf8172702260703&q=12.971599,77.594566"
+
+| Method          | Used with                  | Purpose        |
+| --------------- | -------------------------- | -------------- |
+| `set_payload()` | MIMEText / older email API | Set email body |
+| `set_content()` | EmailMessage (modern)      | Set email body |

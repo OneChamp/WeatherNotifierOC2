@@ -1,0 +1,25 @@
+
+Hello,
+
+Here is the latest weather update:
+
+Current Temperature: {TEMP_C}(in degree)
+Condition: {CURRENT_CONDITION}
+
+Rain Forecast Details
+---------------------
+Chance of Rain: {RAIN_PERCENTAGE}%
+Rain Expected: {POSSIBILITY_OF_RAIN}
+
+Maximum And Min Temperature Details
+---------------------
+MAX: {Max}(in degree)
+MIN: {Min}(in degree)
+
+
+
+Note:You are getting this email because either its too hot or there is a possibility of rain.
+If rain is expected, please plan accordingly and consider carrying an umbrella.
+
+Regards,
+WeatherApp-OneChampion02
