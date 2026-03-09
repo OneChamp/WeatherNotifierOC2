@@ -23,3 +23,5 @@ jobs:
 
       - name: Run script
         run: python WeatherNotifier/main.py
+        env:
+            EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
