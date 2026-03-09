@@ -49,12 +49,12 @@ def get_current_weather(api_url):
         print("Error occurred : ",response.status_code)
         return 0
 
-data=pandas.read_csv("./Info/userdata.csv")
+data=pandas.read_csv("WeatherNotifier/Info/userdata.csv")
 data_dict=data.to_dict(orient="records")
 bang_user=[value['email'] for value in data_dict if value['Location']=="BANG"]
 mum_user=[value['email'] for value in data_dict if value['Location']=="MUM"]
 
-with open("./Info/Weather_email_template.txt","r") as f:
+with open("WeatherNotifier/Info/Weather_email_template.txt","r") as f:
     email_content=f.read()
 
 
@@ -118,4 +118,5 @@ for val in location:
 
                 connection.send_message(msg)
                 #print("Email sent to Mumbai team!")
+
 
