@@ -4,6 +4,7 @@ import smtplib
 import os
 from email.message import EmailMessage
 from email.mime.text import MIMEText
+from zoneinfo import ZoneInfo
 import pandas
 
 rainfall_alert_time=[]
@@ -40,7 +41,7 @@ def get_current_weather(api_url):
                 max_temp=today_max_min_temp['maxtemp_c']
                 min_temp =today_max_min_temp['mintemp_c']
                 # print((max_temp,min_temp))
-                cur_temp=cur_hour_forecast['temp_c']
+                cur_temp=data['current']['temp_c']
                 cur_condition=cur_hour_forecast['condition']['text']
                 rain_percentage=cur_hour_forecast['chance_of_rain']
                 possibility_of_rain="Yes" if cur_hour_forecast['will_it_rain'] else "No"
@@ -62,7 +63,7 @@ with open("WeatherNotifier/Info/Weather_email_template.txt","r") as f:
 for val in location:
     if val==1:
         result=get_current_weather(my_api_full_day_forecast_bang)
-        if float(result[4])>=20 or result[3]=="Yes":
+        if float(result[4])>=33 or result[3]=="Yes":
             with smtplib.SMTP_SSL("smtp.gmail.com",465) as connection:
                 connection.login(user=username, password=password)
                 msg=EmailMessage()
@@ -118,6 +119,7 @@ for val in location:
 
                 connection.send_message(msg)
                 #print("Email sent to Mumbai team!")
+
 
 
 
