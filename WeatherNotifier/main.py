@@ -63,7 +63,7 @@ with open("WeatherNotifier/Info/Weather_email_template.txt","r") as f:
 for val in location:
     if val==1:
         result=get_current_weather(my_api_full_day_forecast_bang)
-        if float(result[4])>=33 or result[3]=="Yes":
+        if float(result[0])>=33 or result[3]=="Yes":
             with smtplib.SMTP_SSL("smtp.gmail.com",465) as connection:
                 connection.login(user=username, password=password)
                 msg=EmailMessage()
@@ -92,7 +92,7 @@ for val in location:
 
     elif val==2:
         result=get_current_weather(my_api_full_day_forecast_mum)
-        if float(result[4]) >= 35 or result[3] == "Yes":
+        if float(result[0]) >= 35 or result[3] == "Yes":
             with smtplib.SMTP_SSL("smtp.gmail.com", 465) as connection:
                 connection.login(user=username, password=password)
                 msg = EmailMessage()
