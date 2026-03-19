@@ -2,7 +2,7 @@ name: Weather Notifier
 
 on:
   schedule:
-    - cron: "30 1,7,13 * * *"
+    - cron: "30 1,4,7,10,13 * * *"
   workflow_dispatch:
 
 jobs:
